@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{% block title %} {% endblock %}</title>
+<link rel="stylesheet" href="{{url_for('static', filename='stylesheets/Main.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='stylesheets/nav.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='stylesheets/footer.css')}}">
+<link rel="icon" type="image/ico" href="{{url_for('static', filename = 'images/favicon.ico') }}">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+
+<body>
+	
+	
+	{% if current_user.is_authenticated %}
+	<!--<p><a href="/home">Home</a> | <a href="/learn">Learn</a> |<a href="/ryhme">Record</a> | <a href="/profile">Profile</a> | <a href="/logout">Logout</a></p>-->
+	
+	{% block particles %} {% endblock %}
+	<header>
+			<div class="wrapper">
+				<div class="logo">
+					<a href="/"><img src="{{url_for('static', filename = 'images/logo.png') }}" alt="Joe Care"></a>
+				</div>
+				<div class="navbar">
+					<div class="close-nav"><button>×</button></div>
+					<nav>
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li><a href="/learn">Learn</a></li>
+							<li><a href="/play">Play</a></li>
+							<li><a href="/read">Read</a></li>
+							<li><a href="/profile">Profile</a></li>
+							<li><a href="/logout">Logout</a></li>
+
+						</ul>
+					</nav>
+				</div>
+				<div class="menu-bar">
+					<button><i></i></button>
+				</div>
+			</div>
+		</header>
+	<script>
+			const theBody = document.querySelector('body');
+			const openNav = document.querySelector('.menu-bar button');
+			const closeNav = document.querySelector('.close-nav button');
+			const Navbar = document.querySelector('.navbar');	
+			function showHide(){
+				Navbar.classList.toggle('show');
+			}
+	
+			openNav.onclick = showHide;
+			closeNav.onclick = showHide;
+		</script>
+
+	
+	{% endif %}
+	{% block content %} {% endblock %}
+	
+	<!-- Footer -->
+	<footer class="footer-distributed">
+
+  <div class="footer-left">
+
+    <h3>Smarty Pants<span><img style="height: 5vh;" src="{{url_for('static', filename='images/logoBg.png')}}" alt=""></span></h3>
+
+    <p class="footer-links">
+      <a href="/home" class="link-1">Home</a>
+      <a href="/learn">Learn</a>
+      <a href="/play">Play</a>
+      <a href="/read">Read</a>
+      <a href="/profile">Profile</a>
+      <a href="/logout">Logout</a>
+    </p>
+  </div>
+
+  <div class="footer-center">
+
+    <div>
+		<p>Project By</p>
+      <i class="fa fa-map-marker"></i>
+      <p><span></span>J Prem (209X1A0593) <br>P Sai Nivas (209X1A05A9) <br>M Sai Mithil (209X1A05A3)</p>
+    </div>
+
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>Department of Computer Science & Engineering <br>G. Pulla Reddy Engineering College</p>
+    </div>
+
+    <!--<div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="mailto:support@company.com">support@company.com</a></p>
+    </div>-->
+
+  </div>
+
+  <div class="footer-right">
+
+    <p style="color: white;" class="footer-company-about">
+      <span>About the application</span>
+      Smarty Pants is an innovative educational platform designed to inspire and empower young learners aged 4 to 7. Our mission is to make learning an exciting adventure, nurturing a lifelong love for knowledge. 
+    </p>
+  </div>
+	<hr>
+</footer>
+</body>
+	
+</html>

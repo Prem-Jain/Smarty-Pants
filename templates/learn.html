@@ -1,0 +1,10 @@
+<!doctype html>
+{% extends 'index.html' %}
+{% block title %} Smarty Pants {% endblock %}
+
+{% block content %}
+    <h1>Learn</h1>
+	{% for record in records %}
+		{{record[1]}} <a href="/learn/{{record[1]}}/0?id={{record[0]}}"><button>Learn it</button></a><br>
+	{% endfor %}
+{% endblock %}

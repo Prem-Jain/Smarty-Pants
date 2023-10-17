@@ -1,0 +1,209 @@
+<!doctype html>
+{% extends 'index.html' %}
+{% block title %} Rhyme 
+  
+{% endblock %}
+  
+{% block content %}
+
+<!--<form method="POST">
+            
+            <button type=" submit" name="action" value="Record" class="btn btn-danger bun button_text"><span class="material-icons-outlined button_icon">
+             
+              </span> Record</button> 
+            {% if sung %}
+            <p>This is what you said: {{ sung }}</p>
+            <p>Accuracy: {{ accuracy }}</p>
+        {% endif %}
+
+        {% if text %}
+            {{ text }}
+        {% endif %}
+           
+        </form>-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<h1>Speech to Text</h1>
+    <p>Click the button below and speak into your microphone:</p>
+    <button id="recordButton">Start Recording</button>
+    <button id="stopButton">Stop Recording</button>
+    <p id="output"></p>
+<div id="resultContainer">
+    <p id="resultText"></p>
+    <p id="accuracy"></p>
+</div>
+    <canvas id="visualization" width="1000" height="200"></canvas>
+
+<style>
+/* CSS Styles for word statuses */
+.correct {
+    color: green; /* Green for correct words */
+}
+
+.wrong {
+    color: red; /* Red for wrong words */
+}
+
+.missing {
+    color: orange; /* Orange for missing words */
+}
+
+
+</style>
+
+    <script>
+        const recordButton = document.getElementById('recordButton');
+        const stopButton = document.getElementById('stopButton');
+        const output = document.getElementById('output');
+		var og = "{{og}}";
+        let isRecording = false;
+        let recognition = null;
+        let animationId = null;
+
+        recordButton.addEventListener('click', () => {
+            if (!isRecording) {
+                // Start recording
+                recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+                recognition.continuous = true;
+
+                recognition.onstart = () => {
+                    recordButton.textContent = 'Recording...';
+                    isRecording = true;
+                };
+
+                recognition.onend = () => {
+                    recordButton.textContent = 'Start Recording';
+                    isRecording = false;
+                };
+
+                recognition.onresult = (event) => {
+                    const result = event.results[event.results.length - 1];
+                    const text = result[0].transcript;
+                    output.textContent = text;
+
+                    // Send the text to the server for comparison
+					console.log(text);
+                    $.ajax({
+                        type: 'POST',
+                        url: '/compare',
+                        data: { text: text, og: og},
+						success: function (response) {
+							// Handle the successful response here
+							if (response.hasOwnProperty('result') && response.hasOwnProperty('accuracy')) {
+								const resultArray = response.result;
+            const accuracy = response.accuracy;
+
+            // Update the accuracy element with the received accuracy
+            document.getElementById('accuracy').textContent = 'Accuracy: ' + accuracy + '%';
+
+            // Create a string for displaying the result
+            var resultText = '';
+
+            // Iterate through the resultArray and concatenate words based on word status
+            resultArray.forEach(function (wordStatus) {
+                var word = wordStatus.word;
+                var status = wordStatus.status;
+
+                // Apply appropriate CSS class based on word status
+                var cssClass = '';
+                if (status === 'correct') {
+                    cssClass = 'correct';
+                } else if (status === 'wrong') {
+                    cssClass = 'wrong';
+                } else if (status === 'missing') {
+                    cssClass = 'missing';
+                }
+
+                // Wrap the word in a span with the CSS class
+                resultText += '<span class="' + cssClass + '">' + word + '</span> ';
+            });
+
+            // Update the result element with the formatted result
+            document.getElementById('resultText').innerHTML = resultText;
+								
+							}
+						},
+                        error: function (xhr, status, error) {
+                            console.error('Error:', error);
+                        }
+                    });
+                };
+
+                recognition.start();
+
+                // Start audio visualization
+                const visualizationCanvas = document.getElementById('visualization');
+                const visualizationContext = visualizationCanvas.getContext('2d');
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const analyser = audioContext.createAnalyser();
+
+                analyser.fftSize = 256;
+                const bufferLength = analyser.frequencyBinCount;
+                const dataArray = new Uint8Array(bufferLength);
+
+                navigator.mediaDevices
+                    .getUserMedia({ audio: true })
+                    .then((stream) => {
+                        const audioSource = audioContext.createMediaStreamSource(stream);
+                        audioSource.connect(analyser);
+
+                        function drawVisualization() {
+                            analyser.getByteFrequencyData(dataArray);
+
+                            visualizationContext.clearRect(
+                                0,
+                                0,
+                                visualizationCanvas.width,
+                                visualizationCanvas.height
+                            );
+
+                            visualizationContext.fillStyle = 'rgb(0, 0, 0)';
+                            const barWidth = (visualizationCanvas.width / bufferLength) * 2.5;
+                            let x = 0;
+
+                            for (let i = 0; i < bufferLength; i++) {
+                                const barHeight = dataArray[i];
+
+                                visualizationContext.fillRect(
+                                    x,
+                                    visualizationCanvas.height - barHeight,
+                                    barWidth,
+                                    barHeight
+                                );
+
+                                x += barWidth + 1;
+                            }
+
+                            if (isRecording) {
+                                animationId = requestAnimationFrame(drawVisualization);
+                            }
+                        }
+
+                        drawVisualization();
+                    })
+                    .catch((error) => {
+                        console.error('Error accessing microphone:', error);
+                    });
+            } else {
+                // Stop both recognition and visualization
+                recognition.stop();
+                cancelAnimationFrame(animationId);
+
+                recordButton.textContent = 'Start Recording';
+                output.textContent = '';
+                isRecording = false;
+            }
+        });
+
+        stopButton.addEventListener('click', () => {
+            // Stop both recognition and visualization
+            recognition.stop();
+            cancelAnimationFrame(animationId);
+
+            recordButton.textContent = 'Start Recording';
+            output.textContent = '';
+            isRecording = false;
+        });
+    </script>
+
+
+{% endblock %}

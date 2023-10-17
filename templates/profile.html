@@ -1,0 +1,10 @@
+<!doctype html>
+{% extends 'index.html' %}
+{% block title %} Profile {% endblock %}
+{% block content %}
+    
+    <h1>Profile</h1>
+	<p>Name : {{record[0]}}</p>
+	<p>Email : {{record[1]}}</p>
+	<p>Date of Birth : {{record[2]}}</p>
+{% endblock %}
