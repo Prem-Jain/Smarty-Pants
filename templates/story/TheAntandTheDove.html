@@ -1,0 +1,343 @@
+<!doctype html>
+{% extends 'index1.html' %}
+{% block title %} The Ant and the Dove {% endblock %}
+{% block content %}
+
+
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet"> 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='js/jquery.easing.1.3.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/jquery.booklet.1.1.0.min.js') }}" type="text/javascript"></script>
+<link href="{{url_for('static', filename='stylesheets/jquery.booklet.1.1.0.css') }}" type="text/css" rel="stylesheet" media="screen" />
+		 
+		 
+<style>
+
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	background-image: url(../../static/storyImages/backgroundimage.png);
+	background-repeat: repeat;
+  	background-attachment: fixed;
+	  background-size: 35% 35%;
+	color:#444;
+	font-size:12px;
+	color: #333;
+    
+}
+h1{
+ 	font-family: 'Comic Sans ms', sans-serif;
+}
+.highlight {
+	font-size: 24px; /* Adjust the font size as needed */
+	color: rgb(63, 173, 203);     /* Adjust the color as needed */
+}
+ 
+.booklet{
+	width:900px;
+	height:607px;
+	position:relative;
+	margin:0 auto 10px;
+	-moz-box-shadow:0px 0px 1px #fff;
+	-webkit-box-shadow:0px 0px 1px #fff;
+	box-shadow:0px 0px 1px #fff;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+}
+.booklet .b-wrap-left  {
+	background:#fff url(../../static/storyImages/left_bg.jpg) no-repeat top left;
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-topleft:10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+.booklet .b-wrap-right {
+	background:#efefef url(../../static/storyImages/right_bg.jpg) no-repeat top left;
+	-webkit-border-top-right-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-bottomright: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.booklet .b-counter {
+	bottom:10px;
+	position:absolute;
+	display:block;
+	width:90%;
+	height:20px;
+	border-top:1px solid #ddd;
+	color:#222;
+	text-align:center;
+	font-size:12px;
+	padding:5px 0 0;
+	background:transparent;
+	-moz-box-shadow:0px -1px 1px #fff;
+	-webkit-box-shadow:0px -1px 1px #fff;
+	box-shadow:0px -1px 1px #fff;
+	opacity:0.8;
+}
+.book_wrapper{
+	margin:0 auto;
+	padding-top:50px;
+	width:905px;
+	height:540px;
+	position:relative;
+	background:transparent url(../../static/storyImages/bg.png) no-repeat 9px 27px;
+}
+.book_wrapper h1{
+	color:rgb(1, 1, 0);
+	margin:5px 5px 5px 15px;
+	font-size:24px;
+	background:transparent  no-repeat bottom left;
+	padding-bottom:7px;
+    
+    font-weight: normal;
+}
+.book_wrapper p{
+	font-size:15px;
+	margin:5px 5px 5px 15px;
+}
+.book_wrapper a.article,
+.book_wrapper a.demo{
+	background:transparent url(../../static/storyImages/circle.png) no-repeat 50% 0px;
+	display:block;
+	width:95px;
+	height:41px;
+	text-decoration:none;
+	outline:none;
+	font-size:16px;
+	color:#555;
+	float:left;
+	line-height:41px;
+	padding-left:47px;
+}
+.book_wrapper a.demo{
+	margin-left:50px;
+}
+.book_wrapper a.article:hover,
+.book_wrapper a.demo:hover{
+	background-position:50% -41px;
+	color:#13386a;
+}
+.book_wrapper img{
+	margin:10px 0px 5px 35px;
+	width:300px;
+	padding:4px;
+	border:1px solid #ddd;
+	-moz-box-shadow:1px 1px 1px #fff;
+	-webkit-box-shadow:1px 1px 1px #fff;
+	box-shadow:1px 1px 1px #fff;
+}
+.booklet .b-wrap-right img{
+	border:1px solid #E6E3C2;
+}
+a#next_page_button,
+a#prev_page_button{
+	display:none;
+	position:absolute;
+	width:41px;
+	height:40px;
+	cursor:pointer;
+	margin-top:-20px;
+	top:50%;
+	background:transparent url("../../static/storyImages/buttons.png") no-repeat 0px -40px;
+}
+a#prev_page_button{
+	left:-30px;
+}
+a#next_page_button{
+	right:-30px;
+	background-position:-41px -40px;
+}
+a#next_page_button:hover{
+	background-position:-41px 0px;
+}
+a#prev_page_button:hover{
+	background-position:0px 0px;
+}
+ 
+    
+    
+         </style>
+		 
+  
+		<div style="display: flex; justify-content: center; ">
+			<img src="{{url_for('static', filename='storyImages/1/scroll.png')}}" alt="" width="416px" height="150px">
+			</div>
+		 
+		<div class="book_wrapper" style="margin-top:-25px;">
+			<a id="next_page_button"></a>
+			<a id="prev_page_button"></a>
+			 
+			<div id="mybook" style="display:none;">
+				<div class="b-load">
+					<div>
+						<!--<img src="images/1.jpg" alt=""/>-->
+						<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On a hot day in summer, an <span class = "highlight"><b>ANT</b></span> was searching for some water.</h1>
+						<img src="{{url_for('static', filename='storyImages/1/gif1.gif')}}" alt="" width="100px" height="200px">
+						      <h1>After walking around for some time, she came near a river and started to drink <span class="highlight">WATER</span></h1>
+						
+					</div>
+					<div>
+						<!--<img src="images/2.jpg" alt="" />-->
+						<br><br>
+							<img src="{{url_for('static', filename='storyImages/1/gif2.gif')}}" alt="" /><br><br><br>
+						<h1>While trying to drink water, she slipped and <span class = "highlight">FELL</span> into the river.
+						</h1>
+						
+					</div>
+					<div>
+						<!--<img src="images/3.jpg" alt="" />-->
+						
+						<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A <span class = "highlight">DOVE</span> was sitting on a tree branch and saw the <span class = "highlight">ANT</span> falling into the river.</h1>
+						<img src="{{url_for('static', filename='storyImages/1/gif3.gif')}}" alt="" width="50px" height="200">
+							<h1>The dove quickly plucked a <span class = "highlight">LEAF</span> and dropped it in the river near the struggling ant.</h1>
+					</div>
+					<div>
+						<!--<img src="images/4.jpg" alt="" />-->
+						<br><br>
+						<h1>The ant moved towards the leaf and climbed onto it. She looked up to the tree and  <span class = "highlight">THANKED</span> the dove.</h1>
+						<img src="{{url_for('static', filename='storyImages/1/gif4.gif') }}" alt="" >
+					</div>
+					<div>
+						<!--<img src="images/5.jpg" alt="" />-->
+						<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Later, the same day, a bird catcher nearby was about to shoot the dove hoping to <span class = "highlight">CATCH</span> it.</h1>
+						<img src="{{url_for('static', filename='storyImages/1/gif5.gif')}}" alt="" height="200px">
+						<h1>The ant <span class = "highlight">SAW</span> him and guessed what he was about to do.</h1>
+					</div>
+					<div>
+						<!--<img src="images/6.jpg" alt="" />-->
+						<br><br><img src="{{url_for('static', filename='storyImages/1/gif6.gif')}}" alt="" /><br>
+						<h1>The dove was resting and he had no idea about the bird catcher. The ant quickly <span class = "highlight">BIT</span> him on the <span class = "highlight">FOOT.</span></h1>
+						
+					</div>
+					<div>
+						<!--<img src="images/7.jpg" alt="" />-->
+						<h1>Feeling the <span class = "highlight">PAIN</span>, the bird catcher dropped his gun and let out a light scream</h1>
+						<img src="{{url_for('static', filename='storyImages/1/gif7.gif')}}" alt="" >
+							<h1>The dove noticed it and quickly <span class = "highlight">FLEW</span> away.</h1>
+					</div>
+					<div>
+						<!--<img src="images/8.jpg" alt="" />-->
+						<br><br>
+						<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MORAL</h1>
+						<br><br><br>
+						<h1><span class = "highlight">A friend in need is a friend indeed</span></h1>
+						
+						
+					</div>
+					<!--<div>
+						<img src="images/9.jpg" alt="" />
+						<h1>Merging Image Boxes</h1>
+						<p>Today we will show you a nice effect for images with jQuery.
+							The idea is to have a set of rotated thumbnails that,
+							once clicked, animate to form the selected image.
+							You can navigate through the images with previous
+							and next buttons and when the big image gets clicked
+							it will scatter into the little box shaped thumbnails again.</p>
+						<a href="" class="article">ARTICLE</a>
+						<a href="" class="demo">DEMO</a>
+					</div>-->
+					<!--<div>
+						<img src="images/10.jpg" alt="" />
+						<h1>Compact News Previewer</h1>
+						<p>Today we will create a news previewer that let’s you
+							show your latest articles or news in a compact way.
+							The news previewer will show some list of articles
+							on the left side and the preview of the article with a
+							longer description on the right. Once a news on the left
+							is clicked, the preview will slide in.</p>
+						<a href="" class="article">ARTICLE</a>
+						<a href="" class="demo">DEMO</a>
+					</div>-->
+					<!--<div>
+						<img src="images/11.jpg" alt="" />
+						<h1>Overlay Effect Menu</h1>
+						<p>In this tutorial we are going to create a simple menu
+							that will stand out once we hover over it by covering
+							everything except the menu with a dark overlay.
+							The menu will stay white and a submenu area will
+							expand. We will create this effect using jQuery.</p>
+						<a href="" class="article">ARTICLE</a>
+						<a href="" class="demo">DEMO</a>
+					</div>-->
+					<!--<div>
+						<img src="images/12.jpg" alt="" />
+						<h1>Polaroid Photobar Gallery</h1>
+						<p>In this tutorial we are going to create an image gallery
+							with a Polaroid look. We will have albums that will expand
+							to sets of slightly rotated thumbnails that pop out on hover.
+							The full image will slide in from the bottom once a thumbnail
+							is clicked. In the full image view the user can navigate
+							through the pictures or simply choose another thumbnail
+							to be displayed.</p>
+						<a href="" class="article">ARTICLE</a>
+						<a href="" class="demo">DEMO</a>
+					</div>-->
+					<!--<div>
+						<img src="images/13.jpg" alt="" />
+						<h1>Pull Out Content Panel</h1>
+						<p>In this tutorial we will create a content panel that 
+							slides out at a predefined scroll position. It will 
+							reveal a teaser with related content and it can be 
+							expanded to full page size to show more. A custom 
+							slider allows to scroll through many items in the 
+							panel.</p>
+						<a href="" class="article">ARTICLE</a>
+						<a href="" class="demo">DEMO</a>
+					</div>-->
+					<!--<div>
+						<img src="images/14.jpg" alt="" />
+						
+						
+					</div>-->
+				</div>
+			</div>
+		</div>
+        
+        <script type="text/javascript">
+			$(function() {
+				var $mybook 		= $('#mybook');
+				var $bttn_next		= $('#next_page_button');
+				var $bttn_prev		= $('#prev_page_button');
+				var $loading		= $('#loading');
+				var $mybook_images	= $mybook.find('img');
+				var cnt_images		= $mybook_images.length;
+				var loaded			= 0;
+				 
+				$mybook_images.each(function(){
+					var $img 	= $(this);
+					var source	= $img.attr('src');
+					$('<img/>').load(function(){
+						++loaded;
+						if(loaded == cnt_images){
+							$loading.hide();
+							$bttn_next.show();
+							$bttn_prev.show();
+							$mybook.show().booklet({
+								name:               null,                            //  
+								width:              800,                             //  
+								height:             500,                             //   
+								speed:              600,                             //  
+								direction:          'LTR',                           //  
+								                           //  
+								next:               $bttn_next,          			//  
+								prev:               $bttn_prev,          			//  
+								                       
+							});
+							Cufon.refresh();
+						}
+					}).attr('src',source);
+				});
+				
+			});
+        </script>
+ 
+{% endblock %}

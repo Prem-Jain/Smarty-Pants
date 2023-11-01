@@ -1,10 +1,115 @@
 <!doctype html>
 {% extends 'index.html' %}
-{% block title %} Smarty Pants {% endblock %}
+{% block title %} Learn {% endblock %}
 
 {% block content %}
-    <h1>Learn</h1>
-	{% for record in records %}
+
+<link rel="stylesheet" href="{{url_for('static', filename='stylesheets/timeline.css')}}">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <h1 class="homeTitle" style="margin: 15px 0 0px">Learn</h1>
+<div style="display: flex; flex: 50%;align-items: center;">
+	<div >
+	<img src="{{url_for('static', filename='images/learnImage.png')}}" alt="" width="300px" style="margin-left: 20px;">
+	</div>
+	<div><p style="padding: 10px 5%; font-weight: 500; ">Welcome to the captivating world of "Learn," where every moment is a new opportunity to grow, discover, and embrace the wonders of learning. Here, young adventurers like you embark on an educational journey filled with imagination, inspiration, and fun.
+
+In the "Learn" section, you'll explore a diverse range of interactive content, from the enchanting realms of alphabets to the intriguing stories of animals. Dive into the past, where you'll uncover the mysteries of prehistoric times, and unlock the power of language through the enchanting world of rhymes.
+<br><br>
+Engage with vibrant images, lively audio, and fascinating text that will ignite your curiosity and encourage you to speak, listen, and explore. 
+So, whether you're starting your journey with letters, becoming a nature explorer, or a storyteller of rhymes, the "Learn" section is your gateway to a world of endless possibilities. Join us in this adventure, and let your learning voyage unfold!    
+</p></div>
+	</div>
+	<!--{% for record in records %}
 		{{record[1]}} <a href="/learn/{{record[1]}}/0?id={{record[0]}}"><button>Learn it</button></a><br>
-	{% endfor %}
+	{% endfor %}-->
+	<!--<ul>
+        {% for record in records %}
+            <li>
+                Content: {{ record[1] }}<br>
+                Age Requirement: {{ record[2] }}<br>
+                Max Score: {{ record[3] }}<br>
+				your Score : {{scores[loop.index0]}} <br>
+                {% if age >= record[2] or (loop.index0 > 0 and scores[loop.index0 - 1] >= 0.75 * record[3]) %}
+                    <a href="/unlock/{{ record[0] }}">Unlock</a>
+                {% else %}
+                    Content Locked
+                {% endif %}
+
+            </li>
+        {% endfor %}
+    </ul>-->
+
+	<div class="timeline">
+    <section class="timeline">
+        <ul>
+			{% for record in records %}
+          <li>
+            <div class="content">
+                
+                <div class="timeline-content-info">
+                    <span class="timeline-content-info-title" style="font-weight: bolder; font-size: 1.125em;">
+                        <i class="fa fa-certificate" aria-hidden="true"></i>
+                        {{record[1]}}
+                    </span>
+                    <span class="timeline-content-info-date">
+                        
+                        Age required: {{record[2]}}<br>
+						
+                    </span>
+                </div>
+                <p style="text-align: justify; color: black;">{{record[4]}}</p><hr style="border: 1.5px solid white; margin: 5px 0"><p style="color: black; margin-bottom: 10px;">Max Score: {{record[3]}}</p>
+                <div>
+					{% if (age >= record[2] or record[2] == 4) or (loop.index0 > 0 and scores[loop.index0 - 1] >= 0.75 * record[3]) %}
+					<div style="display: flex">
+						<span style="float: left;"><a href="/learn/{{record[1]}}/0?id={{record[0]}}"><button class="button"><span>Learn </span></button></a></span>
+						
+						<div class="content-skills" >
+							{% if scores[loop.index0] == -1 %}
+								<span style="color: black;">Your Score: 0</span>
+							{% else %}
+								<span style="color: black;">Your Score: {{scores[loop.index0]}}</span>
+							{% endif %}
+						</div>
+					</div>
+					{% else %}
+						<button class="button1" disabled><span><i class="fa fa-lock"></i> Locked </span></button>
+					{% endif %}
+                </div>
+            </div>
+          </li>
+          {% endfor %}
+          
+        </ul>
+      </section>
+  </div>
+
+<script>
+        var elements = document.querySelectorAll('.content');
+        
+        // Function to check for fade effect on scroll and resize
+        function checkForFade() {
+        var windowHeight = window.innerHeight;
+        elements.forEach(function (element) {
+            var elementHeight = element.offsetHeight;
+            var elementOffset = element.getBoundingClientRect().top;
+            var space = windowHeight - (elementHeight + elementOffset - window.pageYOffset);
+
+            if (space < 200) {
+            element.classList.add('non-focus');
+            } else {
+            element.classList.remove('non-focus');
+            }
+        });
+        }
+
+        // Add event listeners for scroll and resize and call the checkForFade function
+        window.addEventListener('scroll', checkForFade);
+        window.addEventListener('resize', checkForFade);
+
+        // Trigger the scroll event on initial load
+        window.dispatchEvent(new Event('scroll'));
+</script>
+
 {% endblock %}

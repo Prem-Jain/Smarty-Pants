@@ -1,0 +1,97 @@
+<!doctype html>
+{% extends 'index1.html' %}
+{% block title %} Play {% endblock %}
+{% block content %}
+
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+<link rel="stylesheet" href="{{url_for('static', filename='stylesheets/play.css')}}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- partial -->
+<section class="game-section">
+  <h2 class="line-title">Edu games</h2>
+  <div class="owl-carousel custom-carousel owl-theme">
+    <div class="item active" style="background-image: url('../static/images/ZooM.png');">
+      <div class="item-desc">
+        <h3>Zoo Match</h3>
+        <p>Zoo Match challenges players to match animals with their habitats through fun drag-and-drop gameplay.</p>
+        <button onclick="window.location.href='/play/ZooMatch';" type="button" class="btn btn-primary">Match Them</button>
+      </div>
+    </div>
+    <div class="item" style="background-image: url('../static/images/Flip.png');">
+      <div class="item-desc">
+        <h3>Flip Pairs</h3>
+        <p>Exercise your memory and concentration in our card-flipping memory game, where matching pairs is both challenging and fun, perfect for all ages.</p>
+        <button onclick="window.location.href='/play/FlipPairs';" type="button" class="btn btn-primary">Flip it</button>
+      </div>
+    </div>
+    <div class="item" style="background-image: url('../static/images/Puzzle.png');">
+      <div class="item-desc">
+        <h3>Puzzle Genius</h3>
+        <p>Test your problem-solving abilities with our puzzle solver game that offers a series of brain-teasing challenges and intriguing mysteries to unravel.</p>
+        <button onclick="window.location.href='/play/PuzzleMaster';" type="button" class="btn btn-primary">Puzzle</button>
+
+      </div>
+    </div>
+    <div class="item" style="background-image: url('../static/images/2048.png');">
+      <div class="item-desc">
+        <h3>2048</h3>
+        <p>Battle royale where 100 players fight to be the last person standing. which was a community-created mod
+          for Blizzard Entertainment's Warcraft III.</p>
+        <button onclick="window.location.href='/play/2048';" type="button" class="btn btn-primary">Swipe &amp; Play</button>
+
+      </div>
+    </div>
+    <div class="item" style="background-image: url('../static/images/Word.png');">
+      <div class="item-desc">
+        <h3>Word Scramble</h3>
+        <p>Unscramble letters to make words and have fun with Word Scramble!</p>
+          <button onclick="window.location.href='/play/WordScramble';" type="button" class="btn btn-primary">Scramble</button>
+      </div>
+    </div>
+  </div>
+</section>
+	
+
+<section class="game-section">
+  <h2 class="line-title">Maths games</h2>
+  <div class="owl-carousel custom-carousel owl-theme">
+    <div class="item active" style="background-image: url('../static/images/Add.png');">
+      <div class="item-desc">
+        <h3>Addition</h3>
+        <p>Get ready to boost your math prowess with our exciting addition game, where quick thinking and accurate calculations lead to victory in a race against time</p>
+          <button onclick="window.location.href='/play/Addition';" type="button" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+    <div class="item" style="background-image: url('../static/images/Subtract.jpg')">
+      <div class="item-desc">
+        <h3>Substraction</h3>
+        <p>Get ready to boost your math prowess with our exciting addition game, where quick thinking and accurate calculations lead to victory in a race against time.</p>
+        <button onclick="window.location.href='/play/Subtraction';" type="button" class="btn btn-primary">Subtract</button>
+      </div>
+    </div>
+    <div class="item" style="background-image: url('../static/images/Multiply.jpg');">
+      <div class="item-desc">
+        <h3>Multiplication</h3>
+        <p>Get ready to boost your math prowess with our exciting addition game, where quick thinking and accurate calculations lead to victory in a race against time</p>
+        <button onclick="window.location.href='/play/Multiplication';" type="button" class="btn btn-primary">Multiply</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+	
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script  src="{{url_for('static', filename='js/play.js')}}"></script>
+
+</body>
+</html>
+{% endblock %}

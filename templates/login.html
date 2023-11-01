@@ -4,9 +4,17 @@
 {% block title %} Login {% endblock %}
 
 {% block content %}
-	{% for mesg in get_flashed_messages() %}
-      <p>{{ mesg }}</p>
-    {% endfor %}
+	  {% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		{% for message in messages %}
+		<div class="alert">
+		  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+			<p align="center">{{ message }}</p>
+		</div>
+		{% endfor %}
+	  {% endif %}
+	{% endwith %}
+
 	<link rel="stylesheet" href="{{url_for('static', filename='stylesheets/login.css')}}">
     <!--
 	<form action="{{url_for('login')}}" method="post">

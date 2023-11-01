@@ -1,0 +1,35 @@
+<!doctype html>
+{% extends 'index1.html' %}
+{% block title %} Word Scramble {% endblock %}
+{% block content %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='stylesheets/WordScramble.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{url_for('static', filename='js/WordScramble.js')}}" defer></script>
+    <script src="{{url_for('static', filename='js/WordScrambleScript.js')}}" defer></script>
+  </head>
+  <body>
+	  <br>
+    <div class="container">
+        <h2>Word Scramble</h2>
+        <div class="content">
+            <p class="word"></p>
+            <div class="details">
+                <p class="hint">Hint: <span></span></p>
+                <p class="time">Time Left: <span><b>30</b>s</span></p>
+            </div>
+            <input type="text" spellcheck="false" placeholder="Enter a valid word">
+            <div class="buttons">
+                <button class="refresh-word">Refresh Word</button>
+                <button class="check-word">Check Word</button>
+            </div>
+        </div>
+    </div>
+	  <br>
+  </body>
+</html>
+{% endblock %}

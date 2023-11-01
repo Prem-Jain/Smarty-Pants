@@ -1,0 +1,296 @@
+<!doctype html>
+{% extends 'index1.html' %}
+{% block title %} Read {% endblock %}
+{% block content %}
+
+<head>
+  <meta charset="UTF-8">
+  <title>Read the Stories</title>
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/614007/f2-common.css">
+  <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/614007/swiper.min.css">
+  <link rel="stylesheet" href="{{url_for('static', filename='stylesheets/read.css')}}">
+
+</head>
+<body>
+  
+<!-- partial:index.partial.html -->
+<div class="main-wrapper" style="margin-top: 60px;">
+  <div class="sl-main-container">
+    <div class="sl-header-wrapper">
+      <h4>Hello Smarties</h4>
+      <h3>READ THE STORIES</h3>
+      <p>Reading can open the door to endless possibilities. If you want to be intelligent, read stories. If you want to be more intelligent, read more stories.
+      <br><br> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;-Albert Einstein
+      </p>
+      <!-- If we need navigation buttons -->
+      <div class="sl-nav">
+        <div class="swiper-button-next">
+          <svg id="nextBtn" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 65">
+								<style>
+									#nextBtn {
+										fill: #04b7ac;
+									}
+								</style>
+							  <path d="M32.5 0A32.5 32.5 0 1 0 65 32.5 32.5 32.5 0 0 0 32.5 0zm0 62A29.5 29.5 0 1 1 62 32.5 29.53 29.53 0 0 1 32.5 62zm-5.22-40.28L38.06 32.5 27.28 43.28l2.12 2.12 12.9-12.9-12.9-12.9z"/>
+							</svg>
+        </div>
+        <div class="swiper-button-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" id="prevBtn" data-name="Layer 1" viewBox="0 0 65 65">
+								<style>
+									#prevBtn {
+										fill: #04b7ac;
+									}
+								</style>
+							  <path d="M0 32.5A32.5 32.5 0 1 0 32.5 0 32.5 32.5 0 0 0 0 32.5zm3 0A29.5 29.5 0 1 1 32.5 62 29.53 29.53 0 0 1 3 32.5zm32.6-12.9L22.7 32.5l12.9 12.9 2.12-2.12L26.94 32.5l10.78-10.78z"/>
+							</svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="sl-wrapper">
+      <!-- Slider main container -->
+      <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+
+          <div class="swiper-slide sl--slide">
+            <div class="slide-cover"></div>
+            <div class="sl-card-wrapper">
+              <div class="sl-gradient"></div>
+              <div class="sl-img-1 sl-bkg-img"></div>
+              <div class="sl--content-wrapper sl--content-wrapper-inactive" >
+                <div class="sl--content-container sl--card-hide">
+                  <p class="sl--sub-text">STORIES</p>
+                  <h2>The Ant and the Dove</h2>
+                  <p class="sl--card-content">The Ant and the Dove Story is one of the best examples of helping morals story. Helping each other is a good habit that we learn and apply in our life. Teaching moral values and ways to apply them in practical life is important.</p>
+                  <div class="sl--link"><a href="/read/TheAntandTheDove">READ THE STORY</a></div>
+                </div>
+
+                <!-- Card Nav GRP -->
+                <div class="sl--card-nav-container">
+                  <!-- Reveal info btn -->
+                  <div class="sl--content-btn content-reveal-btn">
+                    <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+												  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+												</svg>
+                  </div>
+                </div>
+                <!-- END: Card Nav GRP -->
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-cover"></div>
+            <div class="sl-card-wrapper">
+              <div class="sl-gradient"></div>
+              <div class="sl-img-2 sl-bkg-img"></div>
+              <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                <div class="sl--content-container sl--card-hide">
+                  <p class="sl--sub-text">STORIES</p>
+                  <h2>THE FOX AND THE CRANE</h2>
+                  <p class="sl--card-content">The story of the fox and the crane teaches us that friendship is a wonderful gift, which should be centered on confidence and trust rather than deception. The Fox and crane story moral is one should not try to make fun of the other's limitations; and people will treat you the same you treat them.</p>
+                  <div class="sl--link"><a href="/read/TheFoxandTheCrane">READ THE STORY</a></div>
+                </div>
+
+                <!-- Card Nav GRP -->
+                <div class="sl--card-nav-container">
+                  <!-- Reveal info btn -->
+                  <div class="sl--content-btn content-reveal-btn">
+                    <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+												  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+												</svg>
+                  </div>
+                </div>
+                <!-- END: Card Nav GRP -->
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-cover"></div>
+            <div class="sl-card-wrapper">
+              <div class="sl-gradient"></div>
+              <div class="sl-img-3 sl-bkg-img"></div>
+
+              <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                <div class="sl--content-container sl--card-hide">
+                  <p class="sl--sub-text">STORIES</p>
+                  <h2>THE ANT AND THE GRASSHOPPER</h2>
+                  <p class="sl--card-content">The fable describes how a hungry grasshopper begs for food from an ant when winter comes and is refused. The situation sums up moral lessons about the virtues of hard work and planning for the future.</p>
+                  <div class="sl--link"><a href="/read/TheAntandTheHopper">READ THE STORY</a></div>
+                </div>
+
+                <!-- Card Nav GRP -->
+                <div class="sl--card-nav-container">
+                  <!-- Reveal info btn -->
+                  <div class="sl--content-btn content-reveal-btn">
+                    <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+												  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+												</svg>
+                  </div>
+                </div>
+                <!-- END: Card Nav GRP -->
+
+              </div>
+            </div>
+          </div>
+
+
+          <div class="swiper-slide">
+            <div class="slide-cover"></div>
+            <div class="sl-card-wrapper">
+              <div class="sl-gradient"></div>
+              <div class="sl-img-4 sl-bkg-img"></div>
+              <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                <div class="sl--content-container sl--card-hide">
+                  <p class="sl--sub-text">STORIES</p>
+                  <h2>THE FOX AND THE GRAPES</h2>
+                  <p class="sl--card-content">The story concerns a fox that tries to eat grapes from a vine but cannot reach them. Rather than admit defeat, he states they are undesirable. The expression "sour grapes" originated from this fable.</p>
+                  <div class="sl--link"><a href="/read/TheFoxFableandTheGrapes">READ THE STORY</a></div>
+                </div>
+
+                <!-- Card Nav GRP -->
+                <div class="sl--card-nav-container">
+                  <!-- Reveal info btn -->
+                  <div class="sl--content-btn content-reveal-btn">
+                    <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+												  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+												</svg>
+                  </div>
+                </div>
+                <!-- END: Card Nav GRP -->
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-cover"></div>
+            <div class="sl-card-wrapper">
+              <div class="sl-gradient"></div>
+              <div class="sl-img-5 sl-bkg-img"></div>
+              <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                <div class="sl--content-container sl--card-hide">
+                  <p class="sl--sub-text">STORIES</p>
+                  <h2>THE BEAR AND THE BOYS</h2>
+                  <p class="sl--card-content">The Bear and The Two Friends, in a popular short story to let the kids know that it is better to have a few loyal friends than having a thousand fake ones.</p>
+                  <div class="sl--link"><a href="/read/TheBearandTheBoys">READ THE STORY</a></div>
+                </div>
+
+                <!-- Card Nav GRP -->
+                <div class="sl--card-nav-container">
+                  <!-- Reveal info btn -->
+                  <div class="sl--content-btn content-reveal-btn">
+                    <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+												  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+												</svg>
+                  </div>
+                </div>
+                <!-- END: Card Nav GRP -->
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-cover"></div>
+            <div class="sl-card-wrapper">
+              <div class="sl-gradient"></div>
+              <div class="sl-img-6 sl-bkg-img"></div>
+              <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                <div class="sl--content-container sl--card-hide">
+                  <p class="sl--sub-text">STORIES</p>
+                  <h2>THE CROW AND THE FOX</h2>
+                  <p class="sl--card-content">The story. In the fable a crow has found a piece of cheese and retired to a branch to eat it. A fox, wanting it for himself, flatters the crow, calling it beautiful and wondering whether its voice is as sweet to match. When it lets out a caw, the cheese falls and is devoured by the fox.</p>
+                  <div class="sl--link"><a href="/read/TheFoxandTheCrow">READ THE STORY</a></div>
+                </div>
+
+                <!-- Card Nav GRP -->
+                <div class="sl--card-nav-container">
+                  <!-- Reveal info btn -->
+                  <div class="sl--content-btn content-reveal-btn">
+                    <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+												  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+												</svg>
+                  </div>
+                </div>
+                <!-- END: Card Nav GRP -->
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-cover"></div>
+            <div class="sl-card-wrapper">
+              <div class="sl-gradient"></div>
+              <div class="sl-img-7 sl-bkg-img"></div>
+              <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                <div class="sl--content-container sl--card-hide">
+                  <p class="sl--sub-text">STORIES</p>
+                  <h2>THE BOY WHO CRIED WOLF</h2>
+                  <p class="sl--card-content">The tale concerns a shepherd boy who repeatedly fools villagers into thinking a wolf is attacking his town's flock. When an actual wolf appears and the boy calls for help, the villagers believe that it is another false alarm, and the sheep are eaten by the wolf.</p>
+                  <div class="sl--link"><a href="/read/TheBoyWhoCriedWolf">READ THE STORY</a></div>
+                </div>
+
+                <!-- Card Nav GRP -->
+                <div class="sl--card-nav-container">
+                  <!-- Reveal info btn -->
+                  <div class="sl--content-btn content-reveal-btn">
+                    <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+												  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+												</svg>
+                  </div>
+                </div>
+                <!-- END: Card Nav GRP -->
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-cover"></div>
+            <div class="sl-card-wrapper">
+              <div class="sl-gradient"></div>
+              <div class="sl-img-8 sl-bkg-img"></div>
+              <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                <div class="sl--content-container sl--card-hide">
+                  <p class="sl--sub-text">STORIES</p>
+                  <h2>THE WOLF AND THE DONKEY</h2>
+                  <p class="sl--card-content">wolf and a donkey pass the time of day ambling along a path. Nervous that the wolf and his sharp teeth might be planning to make lunch of him, the donkey takes decisive action. The wolf wishes he hadn't got involved in the conversation.</p>
+                  <div class="sl--link"><a href="/read/TheWolfandTheDonkey">READ THE STORY</a></div>
+                </div>
+
+                <!-- Card Nav GRP -->
+                <div class="sl--card-nav-container">
+                  <!-- Reveal info btn -->
+                  <div class="sl--content-btn content-reveal-btn">
+                    <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+												  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+												</svg>
+                  </div>
+                </div>
+                <!-- END: Card Nav GRP -->
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <!-- If we need pagination -->
+        <!--<div class="swiper-pagination"></div>-->
+
+      </div>
+    </div>
+    <!-- END: .sl-wrapper -->
+
+  </div>
+</div>
+<!-- partial -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/614007/swiper.jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+<script  src="{{url_for('static', filename='js/read.js')}}"></script>
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,116 @@
+<!doctype html>
+{% extends 'index.html' %}
+{% block title %} Result {% endblock %}
+{% block content %}
+<link href="https://cdn.bokeh.org/bokeh/release/bokeh-3.3.0.min.css" rel="stylesheet">
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.3.0.min.js"></script>
+    
+<div style="display: flex;align-items: center;margin: 25px 25px">
+	<div>
+		{{ div|safe }}
+		{{ script|safe }}
+	</div>
+	<div style="width: 600px; text-align: center;">	
+		<h2>Results in {{contentName}}</h2>
+		<table style="margin-left: auto; margin-right: auto; font-size: 1rem; background-color: #E8E8E8; border-radius: 15px; padding: 25px">
+			<tr>
+				<td style="text-align: left;color: #183e97; width: 50%">Total Score</td>
+				<td style="text-align: center; padding: 0px 25px;">:</td>
+				<td style="text-align: left;">{{totalScore}}</td>
+			  </tr><tr>
+				<td style="text-align: left;color: #183e97; width: 50%">Average Accuracy</td>
+				<td style="text-align: center; padding: 0px 25px;">:</td>
+				<td style="text-align: left;">{{avgAcc}}</td>
+			  </tr>
+			  <tr>
+				<td style="text-align: left; color:#183e97; width: 50%">High Score</td>
+				<td style="text-align: center; padding: 0px 25px;">:</td>
+				<td style="text-align: left;">{{highScore}}</td>
+			  </tr>
+		</table>
+		<a href="/learn/{{contentName}}/0?id={{contentId}}"><button class="buttonHover buttonHover2" style="background-color: #ffffc1;"><span> Play Again</span></button></a>
+		<a href="/learn"><button class="buttonHover buttonHover1" style="background-color: #c1fdc1;"><span>End Learning </span></button></a>
+	</div>
+</div>
+
+<style>
+.buttonHover1 {
+  display: inline-block;
+  border-radius: 15px;
+  border: none;  
+  text-align: center;
+  font-size: 16px;
+  padding: 15px 32px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.buttonHover1 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonHover1 span:after {
+  content: '\00bb';
+  font-size: 30px;
+  position: absolute;
+  opacity: 0;
+  top: -15px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonHover1:hover span {
+  padding-right: 25px;
+}
+
+.buttonHover1:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.buttonHover2 {
+  display: inline-block;
+  border-radius: 15px;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+  padding: 15px 32px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.buttonHover2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonHover2 span:after {
+  content: '\00ab';
+  font-size: 30px;
+  position: absolute;
+  opacity: 0;
+  top: -15px;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.buttonHover2:hover span {
+  padding-left: 25px;
+}
+
+.buttonHover2:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+</style>
+{% endblock %}

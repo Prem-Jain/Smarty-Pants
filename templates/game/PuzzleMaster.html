@@ -1,0 +1,17 @@
+<!doctype html>
+{% extends 'index1.html' %}
+{% block title %} Puzzle Master {% endblock %}
+{% block content %}
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{url_for('static', filename='stylesheets/PuzzleMaster.css')}}">
+        <script src="{{url_for('static', filename='js/PuzzleMaster.js')}}"></script>
+
+
+        <br>
+        <div id="board"></div>
+        <h2>Turns: <span id="turns">0</span></h2>
+        <div id="pieces"></div>
+<br>
+{% endblock %}

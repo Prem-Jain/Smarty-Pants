@@ -4,15 +4,16 @@
 
 
 
-{% block particles%}
+{% block particles %}
 <script src="https://cdn.jsdelivr.net/npm/particlesjs@2.2.3/dist/particles.min.js"></script>
 <link rel="stylesheet" href="{{url_for('static', filename='stylesheets/particles.css')}}">
+<link rel="icon" type="image/ico" href="{{url_for('static', filename = 'images/favicon.ico') }}">
 <section class="nav">
-    <h1>Smarty Pants</h1>
+    <h1 class="animate__animated title">Smarty Pants</h1>
     <h3 class="span loader"><span class="m">L</span><span class="m">E</span><span class="m">A</span><span class="m">R</span><span class="m">N</span><span class="m">&nbsp;</span><span class="m">W</span><span class="m">I</span><span class="m">T</span><span class="m">H</span><span class="m">&nbsp;</span><span class="m">T</span><span class="m">E</span><span class="m">C</span><span class="m">H</span><span class="m">N</span><span class="m">O</span><span class="m">L</span><span class="m">O</span><span class="m">G</span><span class="m">I</span><span class="m">E</span><span class="m">S</span></h3>
     
 </section>
-	<script>
+<script>
   window.onload = function () {
     Particles.init({
       selector: ".background"
@@ -146,12 +147,165 @@ new NavigationPage();
 
 </script>
 	<canvas class="background"></canvas>
-
 {% endblock %}
 
 {% block content %}
-    <h1>Welcome to Smarty Pants!</h1>
-	<p>{{ current_user.userId }} {{session.age}}</p>
-<div style="margin-bottom: 1000px;"></div>
+<link rel="stylesheet" href="{{url_for('static', filename='stylesheets/home.css')}}">
+<script src="{{url_for('static', filename='js/home.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Observer.min.js" integrity="sha512-7xTD1meeGGoAzwZKA0Z8YelV3qAvRltuwACWXpnxtneF7VAMztOTAi3t4laVSaE4Znq4LMPeGUIYWEvKEk5r3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ 
+	<div class="content-area">
+		<div class="wrapper hidden">
+			<div class="content">
+				<h2 class="homeTitle">Learn</h2>
+				<p>Get ready for a world of wonder and discovery in the Learn section! Here, young minds embark on an exciting journey filled with captivating images, delightful sounds, and engaging text. With the power of learning at your fingertips, you'll explore the alphabet, unravel the secrets of animals, dive into the past, and even master the art of rhyming!
+				<br><br>
+				Unlock the magic of knowledge as you explore a realm where every moment is a chance to grow. From colorful letters to the mysteries of nature, the Learn section is your gateway to a world of fun and learning. It's a place where young adventurers like you can immerse yourself in the joy of exploration, listening, speaking, and reading. Are you ready to uncover the secrets of the world and embrace the thrill of discovery? Join us in the Learn section and let the adventure begin!
+				</p>
+			</div>
+			<div class="image-area">
+				
+				<section class="main">
+		<div class="container">
+			<h2 class="filled-text">LEARNING QUEST</h2>
+			<h2 class="outline-text">LEARNING QUEST</h2>
+			<img class="image" src="{{url_for('static', filename='images/learnImage.jpg')}}" alt="">
+		</div>
+	</section>
+			</div>
+			
+		</div>
+		<!-- asjjdbasbd -->
+		
+	
+
+	
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+
+<script type="text/javascript">
+
+		gsap.to(".filled-text, .outline-text", {
+			scrollTrigger:{
+				trigger: ".filled-text, .outline-text", 
+				start: "top bottom", 
+				end: "bottom top", 
+				scrub: 1
+			},
+			x: 100
+		})
+
+		gsap.to(".image", {
+			scrollTrigger:{
+				trigger: ".image",
+				start: "top bottom", 
+				end: "bottom top", 
+				scrub: 1
+			},
+			x: -250,
+
+		})
+	</script>
+		<!-- kkjaj sd akds  -->
+		<div class="wrapper wraper-reverse hidden">
+			<div class="image-area">
+				<section class="main">
+		<div class="container1">
+			<h2 class="filled-text">STORY CORNER</h2>
+			<h2 class="outline-text">STORY CORNER</h2>
+			<img class="image1" src="{{url_for('static', filename='images/readImage.png')}}" alt="ASD">
+		</div>
+	</section>
+			</div>
+			<div class="content">
+				<h2 class="homeTitle">Read</h2>
+				<p>In the "Read" section, you'll find a collection of classic stories like "The Ant &amp; the Dove," "The Boy Who Cried Wolf," and many more. Each story is a window to a world of adventure, wisdom, and imagination. Take your pick, and let your young ones explore these delightful narratives.
+				<br><br>
+				Whether it's bedtime reading, a quiet afternoon, or an educational escape, the "Read" section is your passport to the wonders of storytelling. Dive into captivating narratives, enjoy the art of words, and embark on unforgettable adventures with the turn of every page. It's a place where imagination knows no bounds and learning is an exciting adventure. Join us in the "Read" section, where stories come to life!
+				</p>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+
+		gsap.to(".filled-text, .outline-text", {
+			scrollTrigger:{
+				trigger: ".filled-text, .outline-text", 
+				start: "top bottom", 
+				end: "bottom top", 
+				scrub: 1
+			},
+			x: 100
+		})
+
+		gsap.to(".image1", {
+			scrollTrigger:{
+				trigger: ".image1",
+				start: "top bottom", 
+				end: "bottom top", 
+				scrub: 1
+			},
+			x: -200,
+
+		})
+	</script>
+	<div class="content-area hidden">
+		<h2 class="feed homeTitle">Play</h2>
+
+		<div class="flex-div">
+			<div class="card">
+				<img src="{{url_for('static', filename='images/play1Image.jpg')}}" alt="Play 01" />
+
+				<span>Flip Cards</span>
+			</div>
+			<div class="card">
+				<img src="{{url_for('static', filename='images/play2Image.jpg')}}" alt="Play 02" />
+
+				<span>2048</span>
+			</div>
+			<div class="card">
+				<img src="{{url_for('static', filename='images/play3Image.jpg')}}" alt="Play 03" />
+
+				<span>Maths Games</span>
+			</div>
+			<div class="card">
+				<img src="{{url_for('static', filename='images/play4Image.jpg')}}" alt="Play 04" />
+
+				<span>Puzzles</span>
+			</div>
+		</div>
+		
+	</div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+	<script>
+const animeTitle = (element) => {
+	const arrayText = element.innerHTML.split("");
+	element.innerHTML = "";
+	arrayText.forEach((letter, indice) => {
+		setTimeout(() => (element.innerHTML += letter), 200 * indice);
+	});
+	element.classList.add("animate__shakeY");
+};
+
+const h1 = document.querySelector("h1.title");
+
+animeTitle(h1);
+
+const observer = new IntersectionObserver((entries) => {
+	entries.forEach((entry) => {
+		entry.isIntersecting
+			? entry.target.classList.add("show")
+			: entry.target.classList.remove("show");
+	});
+});
+
+const hiddenElements = document.querySelectorAll("div.hidden");
+
+hiddenElements.forEach((el) => observer.observe(el));
+
+</script>
 {% endblock %}
-a sk askjd akjs dkjajs dkj <p>ksn d sk kj dkajs doasdoinassodajddoja sddja sdo asod <o></o></p>

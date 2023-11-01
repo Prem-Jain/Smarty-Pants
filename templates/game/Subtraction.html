@@ -1,0 +1,89 @@
+<!doctype html>
+{% extends 'index1.html' %}
+{% block title %} Addition {% endblock %}
+{% block content %}
+
+   <link rel="stylesheet" href="{{url_for('static', filename='stylesheets/Subtraction.css')}}">
+
+   <!-- Main Container -->
+   <div class="main-container">
+      <div class="main">
+         
+         <!-- Heading -->
+         <h1>Math Substraction <span> Quiz Game</span></h1>
+
+         <!-- Main Box -->
+         <div class="main-box">
+            <div class="show-anwser"><span id="ans"></span></div>
+
+            <div class="box1">
+               <div class="box-col">
+                  <input type="textf" id="intext" class="intext11">
+               </div>
+
+               <div class="add-s" style="color: white; font-weight: 700; font-size: 25px;">
+                  <p>-</p>
+               </div>
+
+                <div class="box-col">
+                  <input type="textf" id="intext1" class="intext11">
+               </div>
+
+            </div>
+
+            <!-- text input -->
+            <div class="box2">
+               <input tpye="text" id="intext2">
+            </div>
+
+            <!-- button -->
+             <div class="box2">
+               <button class="btn" onclick="Game()"> Check Anwser</button>
+            </div>
+            <div class="score-container" style="color: white; font-weight: 700; font-size: 25px;">Score: <span class="score">0</span></div>
+
+         </div>
+      </div>
+   </div>
+	<br>
+   <script>
+      let n1 = Math.floor(Math.random()*20+1);
+      let n2 = Math.floor(Math.random()*20+1);
+
+      document.getElementById("intext").value = n1;
+      document.getElementById("intext1").value = n2;
+      let score = document.querySelector(".score");
+      let count = 0;
+
+
+      let adds= n1 - n2;
+      function Game(){
+         var user= document.getElementById("intext2").value;
+         console.log(adds,user)
+
+         if( user == adds){
+            count++;
+            score.innerHTML = count;
+            document.getElementById("ans").innerHTML = "Well Done! Your Answer is Correct";
+         }else{
+            count--;
+      score.innerHTML = count;
+             document.getElementById("ans").innerHTML = "Correct Answer " + adds + " . Try Again";
+         }
+
+           var user= document.getElementById("intext2").value = "";
+
+
+      n1 = Math.floor(Math.random()*20+1);
+      n2 = Math.floor(Math.random()*20+1);
+
+      document.getElementById("intext").value = n1;
+      document.getElementById("intext1").value = n2;
+
+      adds= n1 - n2;
+
+
+      }
+   </script>
+
+{% endblock %}

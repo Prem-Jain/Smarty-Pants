@@ -1,0 +1,27 @@
+<!doctype html>
+{% extends 'index1.html' %}
+{% block title %} Flip Pairs {% endblock %}
+{% block content %}
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"/>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='stylesheets/FlipPairs.css')}}" />
+<br><br>
+    <div class="wrapperGame">
+      <div class="stats-container">
+        <div id="moves-count"></div>
+        <div id="time"></div>
+      </div>
+      <div class="game-container"></div>
+      <button id="stop" class="hide">Stop Game</button>
+    </div>
+    <div class="controls-container">
+      <p id="result" style="color: white;"></p>
+      <button id="start">Start Game</button>
+    </div>
+<br><br>
+    <!-- Script -->
+    	<script src="{{url_for('static', filename='js/FilpPairs.js')}}"></script>
+{% endblock %}
