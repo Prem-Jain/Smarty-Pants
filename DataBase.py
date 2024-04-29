@@ -103,12 +103,10 @@ class DataBaseOperations:
             x = (userId,)
             insert = """INSERT INTO Score (userId) VALUES (?);"""
             c.execute(insert, x)
-            ID = c.lastrowid
         finally:
             con.commit()
             c.close()
             con.close()
-        return ID
     
     def getScore(contentId, userId):
         con = sqlite3.connect(DataBaseOperations._DB)

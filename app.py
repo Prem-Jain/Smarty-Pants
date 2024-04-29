@@ -165,7 +165,7 @@ def results(contentName):
     texts = DB.getContentText(contentId)
     x, y  = [], []
     for text in texts:
-        x.append(text[1])
+        x.append(text[1].split()[0])
     for learnId in texts:
         if str(learnId[0] - 1) not in scores.keys():
             y.append(0)
@@ -185,6 +185,7 @@ def upload():
             return jsonify({'error': 'No audio file provided'}), 400
         audio_file = request.files['audio']
         recognizer = sr.Recognizer()
+        recognizer.adjust_for_ambient_noise()
         audio_data = recognizer.record(audio_file)
         text = recognizer.recognize_google(audio_data)
         return jsonify({'text': text})

@@ -32,7 +32,6 @@ class Operations:
 
         bar_plot.xaxis.axis_label = "Content"
         bar_plot.xaxis.axis_line_width = 3
-        
         bar_plot.yaxis.axis_label = "Score"
         bar_plot.yaxis.major_label_text_color = "orange"
         
@@ -50,10 +49,9 @@ class Operations:
     
         circle_plot.yaxis.axis_label = "Score"
         circle_plot.yaxis.major_label_text_color = "orange"
-
+        
         circle_plot.toolbar.logo = None
         circle_plot.tools = [SaveTool(), PanTool(), BoxZoomTool(), WheelZoomTool(), hover, ResetTool()]
-        
         tab1 = TabPanel(child=bar_plot, title="Bar Graph Analysis")
         tab2 = TabPanel(child=circle_plot, title="Dot Graph Analysis")
         tabs = Tabs(tabs=[tab1, tab2])
