@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;800&display=swap");
+
+body {
+	overflow-x: hidden;
+}
+div.banner {
+	width: 100%;
+	min-height: 100vh;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+div.banner > h1 {
+	background-image: url(https://img.freepik.com/free-vector/hand-drawn-flat-groovy-psychedelic-background_23-2149074391.jpg);
+	font-size: 8.8em;
+	font-weight: 800;
+	color: #fff;
+	text-shadow: 2px 2px 30px rgba(0, 0, 0, 0.3);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-font-smoothing: antialiased;
+	text-transform: uppercase;
+}
+
+div.content-area {
+	width: 100%;
+	min-height: 100vh;
+}
+
+div.wrapper {
+	display: grid;
+	grid-template-columns: 50%;
+	grid-template-rows: auto;
+	grid-template-areas: "content image";
+	height: auto;
+}
+
+div.content {
+	grid-area: "content";
+	margin: 20px 40px 0px;
+	line-height: 30px;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+}
+
+div.content > h2 {
+	font-weight: bolder;
+}
+
+div.image-area {
+	grid-area: "image";
+}
+
+div.image-area > img {
+	width: 100%;
+	max-height: 600px;
+	position: relative;
+	border-radius: 25px;
+	padding: 15px;
+}
+
+div.flex-div {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+}
+
+h2.feed {
+	text-align: center;
+	font-weight: bolder;
+	margin: 6%;
+	font-size: 4.6em;
+}
+
+div.card {
+	width: 500px;
+	height: 400px;
+	border-radius: 15px;
+	box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+	margin: 40px;
+	border: 1px solid #fff;
+}
+
+div.card > img {
+	width: 100%;
+	max-height: 300px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+div.card > span {
+	margin: 20px 40px;
+	font-size: x-large;
+	font-weight: bold;
+}
+
+.hidden {
+	opacity: 0;
+	filter: blur(5px);
+	transform: translatex(-100%);
+	transition: 1s all;
+}
+
+.show {
+	opacity: 1;
+	filter: blur(0);
+	transform: translatex(0);
+	transition: 1s all;
+}
+
+footer.indesign-footer {
+	width: 100%;
+	height: 100%;
+	box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+	padding: 10px;
+}
+
+div.footer-wrapper {
+	display: flex;
+	justify-content: center;
+	align-content: baseline;
+}
+
+div.id-letter,
+div.useful-links {
+	width: 50%;
+	height: auto;
+}
+
+div.id-letter > span {
+	font-size: 4.4em;
+	font-weight: bolder;
+	background-image: url(https://img.freepik.com/free-vector/hand-drawn-flat-groovy-psychedelic-background_23-2149074391.jpg);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-font-smoothing: antialiased;
+}
+
+div.useful-links > ul {
+	list-style: none;
+}
+
+div.useful-links > ul > li > a {
+	text-decoration: none;
+	color: #242424;
+	cursor: pointer;
+}
+
+@media (max-width: 756px) {
+	div.banner > h1 {
+		font-size: 4.6em;
+	}
+
+	div.wrapper {
+		display: flex;
+		flex-direction: column;
+	}
+
+	div.wraper-reverse {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+}
+
+
+/* Scroll */
+
+
+.main{
+	padding: 60px ;
+	position: relative;
+	width: 100% ;
+}
+
+
+
+.filled-text{
+	position: absolute;
+	top: 200px ;
+	left: 100px ;
+	z-index: 1 ;
+	font-size: 100px ;
+	font-weight: 600 ;
+	
+}
+
+.outline-text {
+	position: absolute;
+	top: 200px ;
+	left: 100px ;
+	z-index: 3 ;
+	font-size: 100px ;
+	font-weight: 600 ;
+	-webkit-text-stroke-width: 4px;
+	-webkit-text-stroke-color: ghostwhite;
+	color: transparent;
+	
+}
+
+.image {
+	position: absolute;
+	top: 90px ;
+	left: 250px ;
+	z-index: 2 ;
+	height: 400px ;
+	width: auto ;
+}
+.image1 {
+	position: absolute;
+	top: 90px ;
+	left: 200px ;
+	z-index: 2 ;
+	height: 400px ;
+	width: auto ;
+}

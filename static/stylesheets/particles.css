@@ -1,5 +1,5 @@
-.nav,
-.slider {
+@import url('https://fonts.googleapis.com/css2?family=Ribeye+Marrow&display=swap');
+.nav{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,46 +11,39 @@
   padding: 0 2em;
 }
 
-.nav h1,
-.slider h1 {
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 5vw;
+.nav h1 { 
   margin: 0;
   padding-bottom: 0.5rem;
   letter-spacing: 0.5rem;
-  color: #ff0266;
+  /*color: #ff0266;*/
   transition: all 0.3s ease;
   z-index: 3;
+	background-image: url(https://img.freepik.com/free-vector/hand-drawn-flat-groovy-psychedelic-background_23-2149074391.jpg);
+	font-size: 8em;
+	font-weight: 800;
+	text-shadow: 2px 2px 30px rgba(0, 0, 0, 0.3);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-font-smoothing: antialiased;
+	text-transform: uppercase;
 }
 .nav h1:hover {
-  transform: translate3d(0, -10px, 22px);
+  transform: translate3d(0, -20px, 22px);
   color: #662549;
 }
 
-.slider h2 {
-  font-size: 2vw;
-  letter-spacing: 0.3rem;
-  font-family: "ROBOTO", sans-serif;
-  font-weight: 300;
-  color: #faebd7;
-  z-index: 4;
-}
 h3.span {
   font-size: 2vw;
-  letter-spacing: 0.7em;
-  font-family: "ROBOTO", sans-serif;
+  letter-spacing: 0.5em;
+  font-family: 'Ribeye Marrow', serif;
   font-weight: 300;
   color: #faebd7;
   z-index: 4;
 }
-span:hover {
+.span span:hover {
   color: #ff0266;
   font-weight: 500;
   font-size: 2.2vw;
-}
-
-a {
-  text-decoration: none;
 }
 
 .background {
@@ -64,15 +57,15 @@ a {
 }
 
 .loader span {
-  color: #faebd7;
-  text-shadow: 0 0 0 #faebd7;
+  color: #662549;
+  text-shadow: 0 0 0 #662549;
   -webkit-animation: loading 1s ease-in-out infinite alternate;
 }
 
 @-webkit-keyframes loading {
   to {
     text-shadow: 20px 0 70px #ff0266;
-    color: #662549;
+    color:  #ff0266;
   }
 }
 .loader span:nth-child(2) {

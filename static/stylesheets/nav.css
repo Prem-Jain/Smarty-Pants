@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    line-height: 1.5em;
-}
+
 
 .wrapper {
     font-size: 20px;
@@ -19,7 +14,7 @@ body {
 #f7f7f7;
 }
 
-header {
+.navheader {
     background-color: 
 #ffffff;
     box-shadow: 0 10px 15px -3px 
@@ -28,7 +23,7 @@ rgba(0, 0, 0, 0.1),
 rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
 }
-header .wrapper {
+.navheader .wrapper {
     max-width: 1000px;
     margin: 0 auto;
     display: flex;
@@ -36,7 +31,7 @@ header .wrapper {
     align-items: center;
     justify-content: space-between;
 }
-header .logo img {
+.navheader .logo img {
     height: 75px;
     display: block;
 }
